@@ -1,6 +1,6 @@
 # Testing a RESTful API with Postman
 
-*Based around a tutorial from [here](https://spr.com/building-a-simple-rest-api-with-scala-play-part-1/), [here](https://spr.com/building-a-simple-rest-api-with-scala-play-part-2/) & [here](https://justinrodenbostel.com/2016/01/27/building-a-simple-rest-api-with-scala-play-part-3/).*
+*This tutorial follows on from the Building a RESTful API With Scala and Play tutorial from [here](https://github.com/miranda-hawkes/induction-tutorials/blob/master/Building-A-RESTful-API-With-Scala-Play/README.md).*
 
 ## This Tutorial
 This tutorial walks you through the creation of a Postman collection for testing of an API that can store, retrieve, update and remove data. It covers these main concepts and technologies, some more in depth than others:
