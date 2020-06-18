@@ -1,0 +1,385 @@
+{
+	"info": {
+		"_postman_id": "429cc7d6-c841-4ace-b07c-3b19ecab28ee",
+		"name": " Testing a RESTful API with Postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create book",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4e6ad673-8d79-48cb-98d6-d277fc86867c",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"_id\" : \"1\",\n    \"name\" : \"Some name\",\n    \"description\" : \"Some description\",\n    \"numSales\" : 123\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}",
+					"host": [
+						"{{baseUrl}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create book (Random Data)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c925a8cb-cb79-407b-a803-2c68cd3d7aa0",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"_id\" : \"1\",\n    \"name\" : \"Some name\",\n    \"description\" : \"Some description\",\n    \"numSales\" : 123\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}",
+					"host": [
+						"{{baseUrl}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create book (Inject XSS)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7807667a-35ef-4541-9e59-df215ce71e69",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"_id\" : \"5\",\n    \"name\" : \"<script>alert('xss injection');</script>\",\n    \"description\" : \"Some description\",\n    \"numSales\" : 123\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}",
+					"host": [
+						"{{baseUrl}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update book",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a5a3fb00-722d-4db9-80cc-555f3bdb874d",
+						"exec": [
+							"pm.test(\"Status code is 202\", function () {",
+							"    pm.response.to.have.status(202);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"_id\" : \"1\",\n    \"name\" : \"Some name\",\n    \"description\" : \"Some description\",\n    \"numSales\" : 123\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get book by id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2558a28e-2d47-4cbd-b3e2-6735632167ba",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete book by id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6be66a47-c18f-4148-a36e-4e813d1b11fb",
+						"exec": [
+							"pm.test(\"Status code is 202\", function () {",
+							"    pm.response.to.have.status(202);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get books",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8a96e267-a71f-4795-a7d3-5b4a7a18c7cb",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}",
+					"host": [
+						"{{baseUrl}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get books - Visualize Table (Send and click on Visualize)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f95a8cef-e8c7-49b6-ac53-32bf48dd088c",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"template = `",
+							"<html>",
+							"",
+							"<head>",
+							"    <script src=\"https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js\"></script>",
+							"    <script src=\"https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js\"></script>",
+							"    <script src=\"https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js\"></script>",
+							"    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css\">",
+							"    <link rel=\"stylesheet\" href=\"https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css\">",
+							"    <style type=\"text/css\">",
+							"        img {",
+							"            width: 100px;",
+							"            height: 75px;",
+							"        }",
+							"        ",
+							"        body {",
+							"            padding-top: 50px;",
+							"            background: #f8f9fa;",
+							"        }",
+							"    </style>",
+							"</head>",
+							"",
+							"<body>",
+							"    <div class=\"container\">",
+							"        <h1>Books</h1> ",
+							"        <hr>",
+							"     ",
+							"        <table id=\"myTable\" class=\"display table-hover\" style=\"width:100%\">",
+							"            <thead class=\"thead-dark\">",
+							"                <tr>",
+							"                    <th>Id</th>",
+							"                    <th>Name Suite</th>",
+							"                    <th>Description</th>",
+							"                    <th>Number of Sales</th>",
+							"                </tr>",
+							"            </thead>",
+							"            <tbody>",
+							"                {{#each response}}",
+							"                <tr class=\"alert alert-{{{severity}}}\" title=\"Severity:{{severity}}, Alert Level:{{alertLevel}}\">",
+							"                    <td>{{_id}}</td>",
+							"                    <td>{{name}}</td>",
+							"                    <td>{{description}}</td>",
+							"                    <td>{{numSales}}</td>",
+							"                </tr>",
+							"                {{/each}}",
+							"            </tbody>",
+							"        </table>",
+							"        </div>",
+							"</body>",
+							"",
+							"</html>",
+							"<script>",
+							"    $(document).ready(function() {",
+							"        $('#myTable').DataTable({",
+							"            pageLength: 15,",
+							"            dom: 'ipf',",
+							"            fixedColumns: false,",
+							"            columnDefs: [{",
+							"                targets: [0, 1,2,3],",
+							"                searchable: true",
+							"            }]",
+							"        });",
+							"    });",
+							"</script>",
+							"`; pm.visualizer.set(template, { response: pm.response.json() });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}",
+					"host": [
+						"{{baseUrl}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ce76e3b4-7503-45d9-98ad-26eb48f3d0ad",
+				"type": "text/javascript",
+				"exec": [
+					"pm.environment.set(\"RandomId\", _.random(1,1000000));",
+					"pm.environment.set(\"RandomNumberOfSales\", _.random(1,10000));"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "1e29e4fa-d61a-48e7-9108-be93ee373ac7",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "1a5558c0-e31c-4272-beb9-7fc71c3cb817",
+			"key": "RandomId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "1536d361-c55b-4b99-9b6b-5d414536850a",
+			"key": "RandomNumberOfSales",
+			"value": "",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
