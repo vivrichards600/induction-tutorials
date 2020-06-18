@@ -3,4 +3,5 @@ A series of tutorials useful for new specialist Developers or QAs working on MDT
 
 ## Available Tutorials
 * [Building a Restful API with Scala, Play Framework & Mongo](Building-A-RESTful-API-With-Scala-Play/README.md)
+* [Testing a Restful API with Postman](Testing-A-RESTful-API-With-Postman/README.md)
 * [Building a Gov UK Frontend Service with Scala & Play Framework](Building-A-GovUk-Frontend-Service/README.md)
